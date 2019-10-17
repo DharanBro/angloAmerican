@@ -12,7 +12,7 @@
             socket.on('postMessageToQR', function (data) {
                 console.log(data);
                 if (window && window.top && window.top.postMessage)
-                    window.top.postMessage(data, "*");
+                    window.top.postMessage(data, "bocloud.visualbi.com");
             });
 
             var token = '12345';
