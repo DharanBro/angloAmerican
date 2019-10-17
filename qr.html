@@ -11,10 +11,12 @@
             var socket = io.connect("https://demo-vbi.herokuapp.com");
             socket.on('postMessageToQR', function (data) {
                 console.log(data);
+                if (window && window.top && window.top.postMessage)
+                    window.top.postMessage(data, "bocloud.visualbi.com");
             });
 
             var token = '12345';
-            var remotePageUrl =  "https://demo-vbi.herokuapp.com/?token=" + token;
+            var remotePageUrl = "https://demo-vbi.herokuapp.com/?token=" + token;
             var qrcode = new QRCode("qrcode");
             qrcode.makeCode(remotePageUrl);
         });
