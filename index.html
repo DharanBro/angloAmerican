@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>Socket Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"
+        integrity="sha256-Dul4c09cdrWKXVtallPxF558lwxMwCC8dXJdZ0PVW54=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        var socket = io.connect("http://localhost:3000");
+
+        function filter() {
+            var region = $("#region").val();
+            socket.emit('postMessage', region);
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" id="region">
+    <button onclick="filter()">test</button>
+</body>
+
+</html>
